@@ -1,0 +1,50 @@
+<div class="order">
+    <h2>Order Summary</h2>
+    <table class="cart-table">
+      <thead>
+        <tr>
+          <th>Image</th>
+          <th>Product</th>
+          <th>Quantity</th>
+          <th>Amount</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of cart" class="cart-item">
+          <td>
+            <img src="assets/food.jpeg" alt="food" height="100px" width="100px" />
+            <!-- Uncomment this for dynamic images -->
+            <!-- <img [src]="item.productImage" alt="Product Image" class="item-image" height="100px" width="100px" /> -->
+          </td>
+          <td>
+            <p class="mt-4"> {{ item.productName }}</p>
+          </td>
+          <td>
+            <p class="inc-dec mt-3">
+              <button (click)="decrementQuantity(item.productId)">-</button>
+              <span class="p-2">{{ item.quantity }}</span>
+              <button (click)="incrementQuantity(item.productId)">+</button>
+            </p>
+          </td>
+          <td>
+            <p class="mt-4"> ${{ item.quantity * item.productPrice }}</p>
+          </td>
+          <td>
+            <button (click)="removeFromCart(item.productId)" class="remove">Remove</button>
+          </td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr class="amount">
+          <td colspan="3" class="text-right"><strong>Total Amount:</strong></td>
+          <td colspan="2" class="mt-4">${{ calculateTotalAmount() }}</td>
+        </tr>
+      </tfoot>
+    </table>
+  
+    <div class="placeOrder justify-content-end mt-4">
+      <button (click)="placeOrder()">CHECK OUT</button>
+    </div>
+  </div>
+  

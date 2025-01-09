@@ -1,0 +1,116 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa;
+  }
+  
+  .order {
+    margin: 20px auto;
+    padding: 20px;
+    max-width: 800px;
+    background-color: transparent;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .order h2 {
+    text-align: center;
+    color: white;
+    margin-bottom: 20px;
+  }
+  
+  .cart-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    background-color: #f9f9f9cc;
+  }
+  
+  .cart-table thead th {
+    background-color: #278cf89f;
+    color: white;
+    text-align: left;
+    padding: 10px;
+  }
+  
+  .cart-table tbody td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ddd;
+  }
+  
+  .cart-table tfoot td {
+    font-weight: bold;
+    text-align: right;
+    padding: 10px;
+    background-color: #e9ecef;
+    border-top: 2px solid #ddd;
+  }
+  
+  .cart-table img {
+    display: block;
+    max-width: 100px;
+    height: auto;
+    border-radius: 8px;
+  }
+  
+  .inc-dec button {
+    background-color: grey;
+    color: white;
+    height: 30px;
+    width: 30px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  
+  .inc-dec button:hover {
+    background-color: green;
+  }
+  
+  .cart-table .remove {
+    text-align: center;
+  }
+  
+   .remove {
+    background-color: transparent;
+    color: red;
+    padding: 5px 10px;
+    border: none;
+    /* border-color: red; */
+    border-radius: 15px;
+    cursor: pointer;
+  }
+  
+  .remove:hover {
+    box-shadow: 0px 0px 5px red;
+  }
+  
+  .total h5 {
+    text-align: right;
+    color: white;
+    margin: 0;
+  }
+  
+  .placeOrder {
+    text-align: right;
+  }
+  
+  .placeOrder button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #28a745;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .placeOrder button:hover {
+    background-color: #218838;
+  }
+.amount{
+    background-color: rgba(255, 255, 255, 0.719);
+}

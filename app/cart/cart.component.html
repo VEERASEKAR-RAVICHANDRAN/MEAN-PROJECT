@@ -1,0 +1,74 @@
+
+  
+  <!-- Product Cards -->
+  <div class="products">
+    <h2>Available Products</h2>
+    <div class="filters mb-3">
+        <div class="meal-type-buttons" style="float:right;">
+          <button
+            *ngFor="let mealType of mealTypes"
+            [class.active]="mealType === selectedMealType"
+            (click)="setMealType(mealType)"
+            class="btn btn-outline-primary me-2"
+          >
+            {{ mealType }}
+          </button>
+          <button
+            class="btn btn-outline-secondary"
+            (click)="setMealType('')"
+          >
+            All Meal Types
+          </button>
+        </div>
+      
+        <div class="food-type-buttons mt-2" >
+          <button
+            *ngFor="let foodType of foodTypes"
+            [class.active]="foodType === selectedFoodType"
+            (click)="setFoodType(foodType)"
+            class="btn btn-outline-success me-2"
+          >
+            {{ foodType }}
+          </button>
+          <button
+            class="btn btn-outline-secondary"
+            (click)="setFoodType('')"
+          >
+            All Food Types
+          </button>
+        </div>
+      </div>
+    <div class="product-card">
+      <div *ngFor="let product of filteredProducts" class="product">
+        <img src="assets/food.jpeg" alt="food" height="170px" width="100%" />
+        <h3>{{ product.name }}</h3>
+        <p> <strong>Category:</strong> {{ product.category }}</p>
+        <p>{{ product.description }}</p>
+        <p> <strong>Price:</strong> ${{ product.price }}</p>
+        <p> <strong>Food type:</strong> {{ product.foodType }}</p>
+        <p> <strong>Meal type:</strong> {{ product.mealType }}</p>
+        <span
+          class="added-message text-success"
+          *ngIf="recentlyAdded[product._id]"
+        >
+          Added to cart!..Go to orders
+        </span>
+        <div class="quantity-controls" *ngIf="getProductQuantity(product._id) > 0">
+          <button (click)="decrementQuantity(product._id)">-</button>
+          <span class="p-2">{{ getProductQuantity(product._id) }}</span>
+          <button (click)="incrementQuantity(product._id)">+</button>
+        </div>
+  
+        <div class="addtocart" *ngIf="getProductQuantity(product._id) === 0">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            (click)="addToCart(product, 1)"
+          >
+            Add to Cart
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  

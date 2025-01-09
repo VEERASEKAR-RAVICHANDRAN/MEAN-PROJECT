@@ -1,0 +1,47 @@
+<div class="orders-container">
+    <h2>Your Orders</h2>
+  
+    <!-- Show loading message while fetching data -->
+    <div *ngIf="isLoading" class="loading">Loading orders...</div>
+  
+    <!-- Display orders if available -->
+    <table *ngIf="!isLoading && orders.length > 0">
+      <thead>
+        <tr>
+          <th>Order ID</th>
+          <th>Products</th>
+          <th>Total Amount</th>
+          <th>Status</th>
+          <th>Order Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let order of orders">
+          <td>{{ order._id }}</td>
+          <td>
+            <ul>
+              <li *ngFor="let product of order.products">
+                {{ product.productId }} (Qty: {{ product.quantity }})
+              </li>
+            </ul>
+          </td>
+          <td>{{ order.totalAmount | currency }}</td>
+          <td>{{ order.status }}</td>
+          <td>{{ order.orderDate | date }}</td>
+        </tr>
+      </tbody>
+    </table>
+  
+    <!-- No orders available message -->
+    <div *ngIf="!isLoading && orders.length === 0" class="no-orders">
+      No orders found.
+    </div>
+  
+    <!-- Pagination controls -->
+    <div *ngIf="totalOrders > limit" class="pagination">
+      <button (click)="loadOrders(page - 1)" [disabled]="page === 1">Previous</button>
+      <span>Page {{ page }} of {{ totalPages }}</span>
+      <button (click)="loadOrders(page + 1)" [disabled]="page === totalPages">Next</button>
+    </div>
+  </div>
+  
